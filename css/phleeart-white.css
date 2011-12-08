@@ -1,0 +1,116 @@
+/* GLOBAL */
+
+body {
+    background: #ECECEC;
+    font-size: 12px;
+    color: #888;
+}
+
+a {
+    text-decoration: none;
+    color: #f15a29;
+}
+a:hover {
+    color: orange;
+}
+
+#container {
+    height: 711px;
+}
+
+#header h1 {
+    margin-bottom: 1px;
+    float: left;
+}
+
+    #nav_container ul {
+        list-style: none;
+    }
+
+    #nav_container li {
+        margin-left: 0;
+    }
+
+        #nav_container a {
+            color: #777;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        #nav_container li.active a,
+        #nav_container a:hover {
+            color: #f15a29;
+        }
+        #nav_container ul.level_1 {
+            font-weight: bold;
+            font-size: 16px;
+        }
+            #nav_container ul.level_1 li {
+                float: left;
+            }
+        #nav_container ul.level_2 {
+            font-weight: normal;
+        }
+            #nav_container ul.level_2 li {
+                float: none;
+                font-size: 12px;
+                margin: 0 0 2px 0;
+            }
+
+#footer #copyright {
+    color: #aaa;
+    float: right;
+    font-size: 11px;
+    padding-right: 20px;
+}
+
+/* HOMEPAGE */
+#home .main {
+    background: white;
+}
+
+#home #content {
+    background-color: #fefffe;
+    height: 85px;
+    padding: 32px 0 29px;
+}
+
+    #home #content p {
+        margin-bottom: 0;
+    }
+
+    #home #content .links {
+        float: left;
+        padding-left: 30px;
+        padding-top: 27px;
+    }
+
+        #home #content .links a {
+            color: #999;
+            font-size: 11px;
+            margin-left: 20px;
+            text-transform: uppercase;
+            -webkit-transition: color .75s linear;
+            -webkit-transition: text-shadow .5s linear;
+        }
+
+            #home #content .links a:hover {
+                color: #F74314;
+                text-shadow: 0 0 6px #CA522E;
+            }
+
+        #home #content .links h2 {
+            color: black;
+            display: inline;
+            font-size: 11px;
+            font-weight: normal;
+            padding-left: 140px;
+            text-transform: uppercase;
+        }
+
+    #home #content #logo {
+        display: block;
+        float: left;
+        margin-left: 24px;
+        width: 105px;
+        height: 52px;
+    }

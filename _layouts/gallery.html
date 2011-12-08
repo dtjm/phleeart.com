@@ -1,0 +1,87 @@
+---
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/gallery.css"/>
+        <title>{{page.title}} - phleeart.com</title>
+    </head>
+    <body class="gallery">
+        <div class="header">
+            <div class="content">{{ page.title }}</div>
+            <div class="caption"></div>
+        </div>
+
+        <!-- Render all the pieces-->
+        {% for piece in page.pieces %}
+        {% if piece[0] contains ".jpg" %}
+        <div class="image-container">
+            <img src="img/{{piece[0]}}" alt="{{piece[1]}}" />
+        {% elsif piece[0] contains ".mov" %}
+        <div class="movie-container">
+            <embed src="img/{{piece[0]}}" width="640" height="376"
+            autoplay="false" />
+        {% elsif piece[0] contains "vimeo" %}
+        <div class="movie-container">
+            <iframe src="http://{{piece[0]}}?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>
+        {% endif %}
+            <div class="caption">{{piece[1]}}</div>
+        </div>
+        {% endfor %}
+
+        <div class="footer">
+            <div class="content">
+                <img src="img/phleeart-logo-black.png"/>
+                {% for section in page.links %}
+                <div class="section">
+                    {% for link in section %}
+                        {% if page.title == link %}
+                        <span class="active">{{ link }}</span>
+                        {% else %}
+                        <a href="{{ link | downcase }}.html">{{ link }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            <div class="caption"></div>
+		</div>
+		<div class="disclaimer">{{ page.disclaimer }}</div>
+    </body>
+
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+    </script>
+    <script src="js/momentum_scroller.js"></script>
+    <script type="text/javascript">
+        (function(){
+            var i, pieces, imageLoad;
+
+            new MomentumScroller({
+                friction: 0.925,
+                smoothing: 2,
+                fps: 60
+            });
+
+            pieces = $(".image-container, .movie-container").get()
+
+            window.onload = function(event) {
+                // Set width of body
+                var els = document.body.childNodes;
+                var i, width;
+                for(width = i = 0; i < els.length; i++) {
+                    if(els[i].clientWidth && !$(els[i]).hasClass("disclaimer")) {
+                        width += els[i].clientWidth;
+                    }
+                }
+                document.body.style.width = width + "px";
+
+                // Show the image containers
+                for(i = 0; i < pieces.length; i++) {
+                    pieces[i].style.opacity = "1.0";
+                }
+            };
+        })();
+    </script>
+</html>
+
